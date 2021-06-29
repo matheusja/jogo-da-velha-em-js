@@ -67,6 +67,7 @@ const manage_click = function(i : number, j : number, data : HTMLElement) {
       : [Turn.X, "O", CellValue.O]
   
   const win = check_win(i, j, state[j][i])
+  const end = all(state.map(line => all(line.map(x => x !== CellValue.Empty))));
   if (win.length !== 0) {
     congratz.textContent = `${Turn[thisturn]} wins!`
     congratz.hidden = false;
@@ -77,9 +78,7 @@ const manage_click = function(i : number, j : number, data : HTMLElement) {
       ids[j][i].classList.add("square-victory")
     })
   }
-
-  const end = all(state.map(line => all(line.map(x => x !== CellValue.Empty))));
-  if (end) {
+  else if (end) {
     congratz.textContent = "Empate, não é possível fazer mais movimentos!"
     congratz.hidden = false;
   }
