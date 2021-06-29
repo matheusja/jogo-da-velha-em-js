@@ -1,0 +1,50 @@
+
+
+.centralize {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.grid {
+  padding-top : 0px;
+  margin-top : 0px;
+  border-top-width: 0px;
+}
+
+.square {
+  height : 100px;
+  width : 100px;
+  margin-top : 0px;
+  font-size: 50px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.square-border-down {
+  border-bottom : 1px solid black;
+}
+.square-border-right {
+  border-right : 1px solid black;
+}
+.square-border-top {
+  border-top : 1px solid black;
+}
+.square-border-left {
+  border-left : 1px solid black;
+}
+
+.square-active {
+  background-color: gray;
+}
+
+.square-inactive {
+  background-color: white;
+}
+
+.square-victory {
+  background-color: lime;
+}
