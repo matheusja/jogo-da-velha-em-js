@@ -28,10 +28,10 @@ enum Turn {
   X, O
 }
 
-const state = Array.from({length : 3}, _ => Array.from({length : 3}, _ => CellValue.Empty))
-let turn = Turn.X;
-let ids: HTMLElement[][] = []
 
+let state = Array.from({length : 3}, _ => Array.from({length : 3}, _ => CellValue.Empty))
+let turn = Turn.X
+let ids : HTMLElement[][];
 
 
 
@@ -99,25 +99,17 @@ const reset = function() {
 const setup = function() {
   congratz.hidden = true;
   congratz.addEventListener("click", () => reset())
-  for(let j = 0; j < 3; j++) {
-    const line = document.createElement("tr")
-    let idline = []
-    for(let i = 0; i < 3; i++) {
-      const data = document.createElement("td")
-      idline.push(data);
+  return Array.from({length : 3}, (_, j : number) => {
+    return Array.from({length : 3}, (_, i : number) => {
+      let data = document.createElement("div")
       data.classList.add("square", "square-inactive")
+
+
       if (i < 2) {
         data.classList.add("square-border-right")
       } 
-      if (i > 0) {
-        data.classList.add("square-border-left")
-      }
-
       if (j < 2) {
         data.classList.add("square-border-down")
-      }
-      if (j > 0) {
-        data.classList.add("square-border-top")
       }
 
       data.addEventListener("mouseenter", _ => {
@@ -130,14 +122,13 @@ const setup = function() {
       })
       data.addEventListener("click", _ => manage_click(i, j, data))
 
-      line.appendChild(data)
-    }
-    ids.push(idline)
-    table.appendChild(line)
-  }
+      table.appendChild(data)
+      return data
+    })
+  })
 }
 
-setup()
+ids = setup()
 
 
 
