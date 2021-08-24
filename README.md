@@ -6,7 +6,7 @@ Um jogo da velha em javascript
 
 ```npm install typescript ```
 
-```npm install types@/node```
+```npm i --save-dev @types/node```
 
 ```npm run-script build```
 
